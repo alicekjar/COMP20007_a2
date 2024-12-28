@@ -1,0 +1,13 @@
+S S S S S S S S S S S S S
+S G G G G G G G G G G G S
+S G I I I I I I I I I G S
+S G I N N N N N N N I G S
+S G I N E E E E E N I G S
+S G I N E P P P E N I G S
+S G I N E P O P E N I G S
+S G I N E P P P E N I G S
+S G I N E E E E E N I G S
+S G I N N N N N N N I G S
+S G I I I I I I I I I G S
+S G G G G G G G G G G G S
+S S S S S S S S S S S S S
