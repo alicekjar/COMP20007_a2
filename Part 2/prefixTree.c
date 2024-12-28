@@ -1,6 +1,8 @@
 /*
-    Written by Grady Fitzpatrick for 
+    Skeleton code written by Grady Fitzpatrick for 
     COMP20007 Assignment 2 2024 Semester 1
+
+    Implementation by Alice Kjar
     
      Implementation for module which contains Prefix Trie 
         data structures and functions.
@@ -12,28 +14,23 @@
 #include <error.h>
 #include <string.h>
 
-#define FALSE 0;
+#define FALSE 0
 
+
+/* Creates a new (sub)tree containing the specified string */
 struct prefixTree *newPrefixTree(char *word){
-    // malloc space for prefix tree
-    // set char to dumm
-    // assign all values to NULL
-    // 
     struct prefixTree *retTree = (struct prefixTree *)malloc(sizeof(struct prefixTree));
     assert(retTree);
 
-    for (int i = 0; i < 256; i++)
+    for (int i = 0; i < CHARS; i++)
         retTree->next[i] = NULL;
     
     retTree->word = word;
-    
-    /* Structure of the prefix tree includes a dummy node. */
-    //struct prefixTree *retTree = NULL;
     return retTree;
 }
 
-//pls rearange this to make neater
-struct prefixTree *addWordToTree(struct prefixTree *pt, char *word){
+/* Adds a new string to the prefix tree */
+struct prefixTree *addWordToTree(struct prefixTree *pt, char *word) {
     struct prefixTree *cur = pt;
     for (int i = 0; word[i]; i++){
         int c = word[i];

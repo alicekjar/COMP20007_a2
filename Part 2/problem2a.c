@@ -25,6 +25,11 @@
 #define DICT_FILE_ARG 1
 #define BOARD_FILE_ARG 2
 
+/* 
+    Runs a program which finds all valid words in a dictionary which can be 
+    found on the Boggle board
+    Main function written by Grady Fitzpatrick
+*/
 int main(int argc, char **argv){
     struct problem *problem;
     struct solution *solution;

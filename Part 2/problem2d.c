@@ -25,6 +25,12 @@
 #define DICT_FILE_ARG 1
 #define BOARD_FILE_ARG 2
 
+/* 
+    Runs a program which finds all valid words in a dictionary which can be 
+    found on the Boggle board. Has improved efficiency under the assumption that
+    a letter may only appear once in a word.
+    Main function written by Grady Fitzpatrick
+*/
 int main(int argc, char **argv){
     struct problem *problem;
     struct solution *solution;

@@ -1,6 +1,8 @@
 /*
-    Written by Grady Fitzpatrick for 
+    Skeleton code written by Grady Fitzpatrick for 
     COMP20007 Assignment 2 2024 Semester 1
+
+    Implementation by Alice Kjar
     
      Header for module which contains Prefix Trie 
         data structures and functions.
@@ -16,6 +18,7 @@ struct prefixTree;
 
 struct prefixTree;
 
+/* Prefix tree data structure */
 struct prefixTree {
     struct prefixTree *next[CHARS];
     char *word;
@@ -23,7 +26,9 @@ struct prefixTree {
 
 #endif
 
+/* Creates a new (sub)tree containing the specified string */
 struct prefixTree *newPrefixTree(char *word);
 
+/* Adds a new string to the prefix tree */
 struct prefixTree *addWordToTree(struct prefixTree *pt, char *word);
 

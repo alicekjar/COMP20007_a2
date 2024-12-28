@@ -1,7 +1,9 @@
 /*
-    Written by Grady Fitzpatrick for 
+    Skeleton code written by Grady Fitzpatrick for 
     COMP20007 Assignment 2 2024 Semester 1
     
+    Implementation by Alice Kjar
+
     Implementation for module which contains  
         Problem 2-related data structures and 
         functions.
@@ -68,8 +70,9 @@ void checkLevel(struct linkedList **graph, struct solution *s, struct prefixTree
 
 
 /* 
-    Reads the given dict file into a list of words 
-    and the given board file into a nxn board.
+    Reads the given dictionary file into a set of words
+    and the given board file into a 1-D and 2-D representation.
+    Written by Grady Fitzpatrick
 */
 struct problem *readProblemA(FILE *dictFile, FILE *boardFile) {
     struct problem *p = (struct problem *) malloc(sizeof(struct problem));
@@ -252,6 +255,12 @@ struct problem *readProblemA(FILE *dictFile, FILE *boardFile) {
     return p;
 }
 
+/* 
+    Reads the given dictionary file into a set of words,
+    the given board file into a 1-D and 2-D representation and
+    the given partial string file as a partial string.
+    Written by Grady Fitzpatrick
+*/
 struct problem *readProblemB(FILE *dictFile, FILE *boardFile, 
     FILE *partialStringFile) {
     /* Fill in Part A sections. */
@@ -269,6 +278,10 @@ struct problem *readProblemB(FILE *dictFile, FILE *boardFile,
     return p;
 }
 
+/*
+    Same as Problem A, but part is set for Part D.
+    Written by Grady Fitzpatrick
+*/
 struct problem *readProblemD(FILE *dictFile, FILE *boardFile) {
     /* Interpretation of inputs is same as Part A. */
     struct problem *p = readProblemA(dictFile, boardFile);
@@ -278,8 +291,8 @@ struct problem *readProblemD(FILE *dictFile, FILE *boardFile) {
 }
 
 /*
-    Outputs the given solution to the given file. If colourMode is 1, the
-    sentence in the problem is coloured with the given solution colours.
+    Outputs the given solution to the given file.
+    Written by Grady Fitzpatrick
 */
 void outputProblem(struct problem *problem, struct solution *solution, 
     FILE *outfileName) {
@@ -307,6 +320,7 @@ void outputProblem(struct problem *problem, struct solution *solution,
 
 /*
     Frees the given solution and all memory allocated for it.
+    Written by Grady Fitzpatrick
 */
 void freeSolution(struct solution *solution, struct problem *problem) {
     if(solution) {
@@ -322,6 +336,7 @@ void freeSolution(struct solution *solution, struct problem *problem) {
 
 /*
     Frees the given problem and all memory allocated for it.
+    Written by Grady Fitzpatrick
 */
 void freeProblem(struct problem *problem) {
     if(problem) {
@@ -346,7 +361,10 @@ void freeProblem(struct problem *problem) {
     }
 }
 
-/* Sets up a solution for the given problem */
+/* 
+    Sets up a solution for the given problem 
+    Written by Grady Fitzpatrick
+*/
 struct solution *newSolution(struct problem *problem) {
     struct solution *s = (struct solution *) malloc(sizeof(struct solution));
     assert(s);
@@ -404,7 +422,7 @@ int string_ascending(const void *v1, const void *v2) {
 
 
 /* 
-    Character comparision function, adapted from
+    Character comparision function, adapted from code written by Alistair Moffat
     https://people.eng.unimelb.edu.au/ammoffat/ppsaa/c/funcarg.c
 */
 int char_ascending(const void *v1,const void *v2) {
@@ -416,7 +434,7 @@ int char_ascending(const void *v1,const void *v2) {
 
 /* 
     Dynamically adds a new word to the solution.
-    Code has been adapted from skeleton code
+    Code has been adapted from skeleton code provided
 */
 void addWord(char *word, struct solution *s) {
     /* Check if more space is needed to store the word. */

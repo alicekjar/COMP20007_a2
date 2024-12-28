@@ -12,14 +12,14 @@ struct solution;
 
 /* 
     Reads the given dictionary file into a set of words
-        and the given board file into a 1-D and 2-D representation.
+    and the given board file into a 1-D and 2-D representation.
 */
 struct problem *readProblemA(FILE *dictFile, FILE *boardFile);
 
 /* 
     Reads the given dictionary file into a set of words,
-        the given board file into a 1-D and 2-D representation and
-        the given partial string file as a partial string.
+    the given board file into a 1-D and 2-D representation and
+    the given partial string file as a partial string.
 */
 struct problem *readProblemB(FILE *dictFile, FILE *boardFile, 
     FILE *partialStringFile);

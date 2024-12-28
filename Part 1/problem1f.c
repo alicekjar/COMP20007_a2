@@ -35,7 +35,7 @@
 /* 
     Runs a program which finds the optimal DTW alignment between two sequences
     which does not exceed a maximum path length
-    Written by Grady Fitzpatrick
+    Main function written by Grady Fitzpatrick
 */
 int main(int argc, char **argv){
     struct problem *problem;
