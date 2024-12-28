@@ -1,6 +1,8 @@
 /*
-    Written by Grady Fitzpatrick for 
+    Skeleton code written by Grady Fitzpatrick for 
     COMP20007 Assignment 2 2024 Semester 1
+
+    Implementation by Alice Kjar
     
     Implementation for module which contains  
         Problem 1-related data structures and 
@@ -32,17 +34,27 @@
 struct problem;
 struct solution;
 
-/* Sets up a solution for the given problem. */
+/* 
+    Sets up a solution for the given problem. 
+    Written by Grady Fitzpatrick 
+*/
 struct solution *newSolution(struct problem *problem);
 
+/* Reads a sequence of long doubles in from file
+    Written by Grady Fitzpatrick */
 void readSequence(FILE *seqFile, int *seqLen, long double **seq);
 
 /* Finds the minimum of 3 long doubles */
 long double min(long double a, long double b, long double c);
 
+/* Frees all memory used to store a 3D DTW matrix */
 void freeMatrix(long double ***matrix, int n, int m);
 
 
+/* 
+    Reads a sequence of long doubles in from file
+    Written by Grady Fitzpatrick 
+*/
 void readSequence(FILE *seqFile, int *seqLen, long double **seq) {
     char *seqText = NULL;
     /* Read in text. */
@@ -90,8 +102,8 @@ void readSequence(FILE *seqFile, int *seqLen, long double **seq) {
 }
 
 /* 
-    Reads the given dict file into a list of words 
-    and the given board file into a nxn board.
+    Reads in the two sequence files required for problem 1A
+    Written by Grady Fitzpatrick
 */
 struct problem *readProblemA(FILE *seqAFile, FILE *seqBFile) {
     struct problem *p = (struct problem *) malloc(sizeof(struct problem));
@@ -123,6 +135,11 @@ struct problem *readProblemA(FILE *seqAFile, FILE *seqBFile) {
     return p;
 }
 
+/* 
+    Reads in the two sequence files and limiting window size 
+    required for problem 1D
+    Written by Grady Fitzpatrick
+*/
 struct problem *readProblemD(FILE *seqAFile, FILE *seqBFile, int windowSize) {
     /* Fill in Part A sections. */
     struct problem *p = readProblemA(seqAFile, seqBFile);
@@ -133,6 +150,11 @@ struct problem *readProblemD(FILE *seqAFile, FILE *seqBFile, int windowSize) {
     return p;
 }
 
+/* 
+    Reads in the two sequence files and maximum path length
+    required for problem 1F
+    Written by Grady Fitzpatrick
+*/
 struct problem *readProblemF(FILE *seqAFile, FILE *seqBFile, 
     int maxPathLength) {
     /* Interpretation of inputs is same as Part A. */
@@ -145,8 +167,9 @@ struct problem *readProblemF(FILE *seqAFile, FILE *seqBFile,
 }
 
 /*
-    Outputs the given solution to the given file. If colourMode is 1, the
-    sentence in the problem is coloured with the given solution colours.
+    Outputs the solution to the given problem. Prints to file the DTW distace
+    and matrix
+    Written by Grady Fitzpatrick
 */
 void outputProblem(struct problem *problem, struct solution *solution, 
     FILE *outfileName) {
@@ -178,6 +201,7 @@ void outputProblem(struct problem *problem, struct solution *solution,
 
 /*
     Frees the given solution and all memory allocated for it.
+    Written by Grady Fitzpatrick
 */
 void freeSolution(struct solution *solution, struct problem *problem) {
     if(solution) {
@@ -193,6 +217,7 @@ void freeSolution(struct solution *solution, struct problem *problem) {
 
 /*
     Frees the given problem and all memory allocated for it.
+    Written by Grady Fitzpatrick
 */
 void freeProblem(struct problem *problem) {
     if(problem) {
@@ -207,7 +232,10 @@ void freeProblem(struct problem *problem) {
     }
 }
 
-/* Sets up a solution for the given problem */
+/* 
+    Sets up a solution for the given problem 
+    Written by Grady Fitzpatrick
+*/
 struct solution *newSolution(struct problem *problem) {
     struct solution *s = (struct solution *) malloc(sizeof(struct solution));
     assert(s);
@@ -301,8 +329,10 @@ struct solution *solveProblemD(struct problem *p) {
     return s;
 }
 
-/* Dynamically perform DTW while simultaneously not exceeding
- the maximum path length */
+/*  
+    Solves the given problem according to Part F's definition
+    and places the solution output into a returned solution value. 
+*/
 struct solution *solveProblemF(struct problem *p) {
     struct solution *s = newSolution(p);
     
@@ -360,7 +390,7 @@ long double min(long double a, long double b, long double c) {
     return(fminl(a, fminl(b, c)));
 }
 
-/* Frees 3D Matrix */
+/* Frees all memory used to store a 3D DTW matrix */
 void freeMatrix(long double ***matrix, int n, int m) {
     for(int i = 0; i <= n; i++) {
         for(int j = 0; j <= m; j++) {

@@ -11,18 +11,19 @@ struct problem;
 struct solution;
 
 /* 
-    Reads the given sequence files and stores them.
+    Reads in the two sequence files required for problem 1A
 */
 struct problem *readProblemA(FILE *seqAFile, FILE *seqBFile);
 
 /* 
-    Reads the given sequence files and stores them, as well as the window size.
+    Reads in the two sequence files and limiting window size 
+    required for problem 1D
 */
 struct problem *readProblemD(FILE *seqAFile, FILE *seqBFile, int windowSize);
 
 /*
-    Same as Problem D, but part is set for Part F and maxPathLength is set 
-    instead of windowSize.
+    Reads in the two sequence files and maximum path length
+    required for problem 1F
 */
 struct problem *readProblemF(FILE *seqAFile, FILE *seqBFile, int maxPathLength);
 
@@ -33,19 +34,20 @@ struct problem *readProblemF(FILE *seqAFile, FILE *seqBFile, int maxPathLength);
 struct solution *solveProblemA(struct problem *p);
 
 /*
-    Solves the given problem according to Part B's definition
+    Solves the given problem according to Part D's definition
     and places the solution output into a returned solution value.
 */
 struct solution *solveProblemD(struct problem *p);
 
 /*
-    Solves the given problem according to Part D's definition
+    Solves the given problem according to Part F's definition
     and places the solution output into a returned solution value.
 */
 struct solution *solveProblemF(struct problem *p);
 
 /*
-    Outputs the given solution to the given file.
+    Outputs the solution to the given problem. Prints to file the DTW distace
+    and matrix
 */
 void outputProblem(struct problem *problem, struct solution *solution, 
     FILE *outfileName);

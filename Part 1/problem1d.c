@@ -31,6 +31,11 @@
 
 #define NUMBER_BASE (10)
 
+/* 
+    Runs a program which finds the optimal DTW alignment between two sequences
+    within a certain window
+    Written by Grady Fitzpatrick
+*/
 int main(int argc, char **argv){
     struct problem *problem;
     struct solution *solution;

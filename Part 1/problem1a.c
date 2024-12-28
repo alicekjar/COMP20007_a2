@@ -25,6 +25,11 @@
 #define SEQ_A_ARG 1
 #define SEQ_B_ARG 2
 
+
+/* 
+    Runs a program which finds the optimal DTW alignment between two sequences
+    Provided by Grady Fitzpatrick
+*/
 int main(int argc, char **argv){
     struct problem *problem;
     struct solution *solution;
